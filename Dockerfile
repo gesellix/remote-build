@@ -1,11 +1,15 @@
 FROM busybox:latest
+MAINTAINER Tobias Gesellchen <tobias@gesellix.de>
 
-# Hier kann etwas mehr stehen, wie z.B. die Installation von
-# diversen build-tools, das Setzen von Umgebungsvariablen
-# und das Hinzufügen der Projekt-Sourcen.
+# You can expect the following statement to be more complex
+# in realistic environments and with real sources.
+# Here you may install and configure your build tools,
+# configure your environment and such.
 ADD ./example-project /opt/example-project
 
-# Danach wird der Build im Rahmen von `docker build ...` durchgeführt.
+# The actual build is performed at this place, already during
+# a `docker build ...`. You should call your individual
+# build tool here.
 WORKDIR /opt/example-project
 RUN ./i-am-the-build-runner.sh
 
